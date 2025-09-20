@@ -1,6 +1,10 @@
+import { useState } from "react";
+
 function Square() {
+  const [value, setValue] = useState(null);
+
   function markSquare() {
-    console.log('markSquare is called...');
+    setValue('X');
   }
 
   return (
@@ -8,7 +12,7 @@ function Square() {
       className="square"
       onClick={markSquare}
     >
-      X
+      {value}
     </button>
   );
 }

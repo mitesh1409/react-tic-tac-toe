@@ -1,6 +1,15 @@
 function Square({value}) {
+  function markSquare() {
+    console.log('markSquare is called...');
+  }
+
   return (
-    <button className="square">{value}</button>
+    <button
+      className="square"
+      onClick={markSquare}
+    >
+      {value}
+    </button>
   );
 }
 

@@ -53,6 +53,14 @@ function Board() {
     return null;
   }
 
+  function restartGame() {
+    // Unset all the squares.
+    setSquares(Array(9).fill(null));
+
+    // Select the player to start with.
+    setCurrentPlayer(selectPlayerAtStart());
+  }
+
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -81,6 +89,10 @@ function Board() {
         <Square value={squares[6]} onSquareClick={() => handleSquareClick(6)} />
         <Square value={squares[7]} onSquareClick={() => handleSquareClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleSquareClick(8)} />
+      </div>
+
+      <div className="restart">
+        <button onClick={restartGame}>Restart</button>
       </div>
     </>
   );

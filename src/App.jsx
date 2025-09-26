@@ -15,6 +15,10 @@ function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleSquareClick(i) {
+    if (squares[i]) {
+      return;
+    }
+
     const updatedSquares = [...squares];
     updatedSquares[i] = 'X';
     setSquares(updatedSquares);

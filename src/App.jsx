@@ -13,7 +13,11 @@ function Square({value, onSquareClick}) {
 
 function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
-  const [currentPlayer, setCurrentPlayer] = useState('X');
+  const [currentPlayer, setCurrentPlayer] = useState(selectPlayerAtStart());
+
+  function selectPlayerAtStart() {
+    return Math.floor(Math.random() * 2) ? 'X' : 'O';
+  }
 
   function handleSquareClick(i) {
     if (squares[i] || calculateWinner(squares)) {

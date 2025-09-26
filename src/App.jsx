@@ -13,6 +13,7 @@ function Square({value, onSquareClick}) {
 
 function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [currentPlayer, setCurrentPlayer] = useState('X');
 
   function handleSquareClick(i) {
     if (squares[i]) {
@@ -20,8 +21,9 @@ function Board() {
     }
 
     const updatedSquares = [...squares];
-    updatedSquares[i] = 'X';
+    updatedSquares[i] = currentPlayer === 'X' ? 'X' : 'O';
     setSquares(updatedSquares);
+    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   }
 
   return (

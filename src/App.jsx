@@ -3,12 +3,18 @@ import { useState } from 'react';
 import Square from './Square';
 
 export default function Board() {
+  const [player, setPlayer] = useState('X');
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleSquareClick(i) {
+    if (squares[i]) {
+      return;
+    }
+
     const newSquares = [...squares];
-    newSquares[i] = 'X';
+    newSquares[i] = player;
     setSquares(newSquares);
+    setPlayer(player === 'X' ? 'O' : 'X');
   }
 
   return (

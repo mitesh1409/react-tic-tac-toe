@@ -19,6 +19,13 @@ export default function Game() {
     setHistoryMode(moveId === (history.length - 1) ? false : true);
   }
 
+  function startNewGame() {
+    setPlayer('X');
+    setHistory([]);
+    setSquares(Array(9).fill(null));
+    setHistoryMode(false);
+  }
+
   const moves = history.map((squares, index) => {
     const description = `Go to move # ${index + 1}`;
 
@@ -33,6 +40,9 @@ export default function Game() {
     <div className="game">
       <div className="game-board">
         <Board player={player} squares={squares} onPlay={handlePlay} historyMode={historyMode} />
+        <div className="new-game">
+          <button onClick={startNewGame}>Start a new Game</button>
+        </div>
       </div>
       <div className="game-info">
         <ol>

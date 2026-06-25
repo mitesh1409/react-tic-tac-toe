@@ -1,4 +1,4 @@
-export default function Square({ value, onClick }) {
+function Square({ value, onClick }) {
     return (
         <button
             className="square"
@@ -7,3 +7,5 @@ export default function Square({ value, onClick }) {
         </button>
     );
 }
+
+export default Square;
